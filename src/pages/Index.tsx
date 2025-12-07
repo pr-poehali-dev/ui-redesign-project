@@ -48,10 +48,10 @@ const slides = [
     content: {
       type: 'timeline',
       events: [
-        { year: '1991', text: 'Первый в мире сайт (Тим Бернерс-Ли) — статичный, без интерактива' },
-        { year: '1993', text: 'Графический браузер Mosaic — начало использования цвета и изображений' },
-        { year: '2000-е', text: 'Появление привычной «сетки» сайта, закруглённых краёв, градиентов. Зарождение принципов современного дизайна' },
-        { year: 'Сейчас', text: 'Веб-дизайн — это сочетание эстетики, функциональности и технологии с фокусом на пользовательский опыт (UX/UI) и адаптивность' }
+        { year: '1991', text: 'Первый в мире сайт (Тим Бернерс-Ли) — статичный, без интерактива', icon: 'Globe' },
+        { year: '1993', text: 'Графический браузер Mosaic — начало использования цвета и изображений', icon: 'Image' },
+        { year: '2000-е', text: 'Появление привычной «сетки» сайта, закруглённых краёв, градиентов. Зарождение принципов современного дизайна', icon: 'Grid3x3' },
+        { year: 'Сейчас', text: 'Веб-дизайн — это сочетание эстетики, функциональности и технологии с фокусом на пользовательский опыт (UX/UI) и адаптивность', icon: 'Sparkles' }
       ],
       technologies: 'Ключевые технологии: CSS (отделение оформления от содержания) и JavaScript (динамические элементы)'
     }
@@ -82,17 +82,19 @@ const slides = [
     section: 'Теория',
     title: 'Z-паттерн и Цветовой круг',
     content: {
-      type: 'theory',
+      type: 'visual',
       sections: [
         {
           title: 'Z-образный паттерн (Диаграмма Гутенберга)',
           icon: 'Zap',
-          text: 'Задает маршрут, по которому человеческий глаз перемещается при просмотре страницы (слева направо, сверху вниз). Ключевые элементы нужно разместить на траектории сканирования.'
+          text: 'Задает маршрут, по которому человеческий глаз перемещается при просмотре страницы (слева направо, сверху вниз). Ключевые элементы нужно разместить на траектории сканирования.',
+          visual: 'z-pattern'
         },
         {
           title: 'Цветовой круг Иттена',
           icon: 'Palette',
-          text: 'Инструмент для выбора гармоничных цветовых палитр. Холодные цвета (синий, зеленый) вызывают чувство спокойствия и доверия — идеально для школы.'
+          text: 'Инструмент для выбора гармоничных цветовых палитр. Холодные цвета (синий, зеленый) вызывают чувство спокойствия и доверия — идеально для школы.',
+          visual: 'color-wheel'
         }
       ]
     }
@@ -282,7 +284,7 @@ const slides = [
     section: 'Практика',
     title: 'Разработка нового макета',
     content: {
-      type: 'concept',
+      type: 'mockup',
       features: [
         { icon: 'Palette', title: 'Цветовая схема', desc: 'Чистый белый фон (читаемость, порядок) + насыщенный синий (надёжность, стабильность, интеллект)' },
         { icon: 'Layout', title: 'Блок "Быстрый доступ"', desc: 'Сетка карточек с иконками для главного: расписание, электронный дневник, учителя, документы' },
@@ -564,17 +566,27 @@ export default function Index() {
             )}
 
             {slide.content.type === 'timeline' && (
-              <div className="space-y-6">
+              <div className="space-y-4">
                 {slide.content.events.map((event, idx) => (
-                  <div key={idx} className="flex gap-4 animate-fade-in" style={{ animationDelay: `${idx * 0.15}s` }}>
-                    <div className="flex-shrink-0 w-20 font-bold text-primary text-lg">{event.year}</div>
-                    <div className="flex-1">
-                      <p className="text-base text-foreground">{event.text}</p>
+                  <Card key={idx} className="p-5 animate-fade-in bg-gradient-to-r from-white to-blue-50/40" style={{ animationDelay: `${idx * 0.15}s` }}>
+                    <div className="flex gap-4 items-start">
+                      <div className="flex-shrink-0">
+                        <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
+                          <Icon name={event.icon as any} size={24} className="text-white" />
+                        </div>
+                      </div>
+                      <div className="flex-1">
+                        <div className="font-bold text-primary text-lg mb-2">{event.year}</div>
+                        <p className="text-base text-foreground leading-relaxed">{event.text}</p>
+                      </div>
                     </div>
-                  </div>
+                  </Card>
                 ))}
-                <Card className="mt-6 p-4 bg-blue-50 border-l-4 border-primary">
-                  <p className="text-base font-semibold text-foreground">{slide.content.technologies}</p>
+                <Card className="mt-6 p-5 bg-gradient-to-r from-blue-50 to-purple-50 border-l-4 border-primary">
+                  <div className="flex items-start gap-3">
+                    <Icon name="Code2" size={24} className="text-primary flex-shrink-0" />
+                    <p className="text-base font-semibold text-foreground">{slide.content.technologies}</p>
+                  </div>
                 </Card>
               </div>
             )}
@@ -610,18 +622,62 @@ export default function Index() {
               </div>
             )}
 
-            {slide.content.type === 'theory' && (
+            {slide.content.type === 'visual' && (
               <div className="space-y-6">
                 {slide.content.sections.map((section, idx) => (
                   <Card key={idx} className="p-6 animate-scale-in bg-gradient-to-br from-white to-blue-50/40" style={{ animationDelay: `${idx * 0.2}s` }}>
-                    <div className="flex items-start gap-4">
-                      <div className="p-3 rounded-lg bg-gradient-to-br from-primary to-accent flex-shrink-0">
-                        <Icon name={section.icon as any} size={24} className="text-white" />
+                    <div className="flex flex-col gap-4">
+                      <div className="flex items-start gap-4">
+                        <div className="p-3 rounded-lg bg-gradient-to-br from-primary to-accent flex-shrink-0">
+                          <Icon name={section.icon as any} size={24} className="text-white" />
+                        </div>
+                        <div className="flex-1">
+                          <h3 className="font-bold text-lg mb-3 text-foreground">{section.title}</h3>
+                          <p className="text-base leading-relaxed text-muted-foreground">{section.text}</p>
+                        </div>
                       </div>
-                      <div>
-                        <h3 className="font-bold text-lg mb-3 text-foreground">{section.title}</h3>
-                        <p className="text-base leading-relaxed text-muted-foreground">{section.text}</p>
-                      </div>
+                      {section.visual === 'z-pattern' && (
+                        <div className="mt-4 p-8 bg-white rounded-lg border-2 border-dashed border-primary/30 relative">
+                          <div className="absolute top-4 left-4 w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center">
+                            <Icon name="Eye" size={24} className="text-primary" />
+                          </div>
+                          <div className="absolute top-4 right-4 w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center">
+                            <Icon name="ArrowRight" size={24} className="text-primary" />
+                          </div>
+                          <div className="absolute bottom-4 left-4 w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center">
+                            <Icon name="ArrowDown" size={24} className="text-primary" />
+                          </div>
+                          <div className="absolute bottom-4 right-4 w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center">
+                            <Icon name="Target" size={24} className="text-accent" />
+                          </div>
+                          <svg className="w-full h-32" viewBox="0 0 400 150">
+                            <path d="M 30 30 L 370 30 L 30 120 L 370 120" stroke="url(#gradient)" strokeWidth="3" fill="none" strokeDasharray="8,4" />
+                            <defs>
+                              <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stopColor="#1E40AF" />
+                                <stop offset="100%" stopColor="#9b87f5" />
+                              </linearGradient>
+                            </defs>
+                          </svg>
+                        </div>
+                      )}
+                      {section.visual === 'color-wheel' && (
+                        <div className="mt-4 flex justify-center">
+                          <div className="relative w-48 h-48">
+                            <div className="absolute inset-0 rounded-full bg-gradient-conic from-red-500 via-yellow-500 via-green-500 via-blue-500 via-purple-500 to-red-500 opacity-80"></div>
+                            <div className="absolute inset-8 rounded-full bg-white flex items-center justify-center">
+                              <div className="text-center">
+                                <Icon name="Palette" size={32} className="text-primary mx-auto mb-2" />
+                                <div className="flex gap-2 justify-center">
+                                  <div className="w-6 h-6 rounded-full bg-blue-500 border-2 border-white shadow-lg"></div>
+                                  <div className="w-6 h-6 rounded-full bg-green-500 border-2 border-white shadow-lg"></div>
+                                </div>
+                                <p className="text-xs text-muted-foreground mt-2">Холодные цвета</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      )}
                     </div>
                   </Card>
                 ))}
@@ -692,6 +748,61 @@ export default function Index() {
               </div>
             )}
 
+            {slide.content.type === 'mockup' && (
+              <div className="space-y-6">
+                <div className="p-6 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg shadow-2xl">
+                  <div className="bg-white rounded-lg p-6 space-y-4">
+                    <div className="flex items-center gap-3 pb-4 border-b">
+                      <Icon name="School" size={28} className="text-primary" />
+                      <span className="font-bold text-xl text-primary">Школа №1</span>
+                    </div>
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                      <div className="p-4 bg-blue-50 rounded-lg text-center">
+                        <Icon name="Calendar" size={24} className="text-primary mx-auto mb-2" />
+                        <p className="text-xs font-medium">Расписание</p>
+                      </div>
+                      <div className="p-4 bg-blue-50 rounded-lg text-center">
+                        <Icon name="BookOpen" size={24} className="text-primary mx-auto mb-2" />
+                        <p className="text-xs font-medium">Дневник</p>
+                      </div>
+                      <div className="p-4 bg-blue-50 rounded-lg text-center">
+                        <Icon name="Users" size={24} className="text-primary mx-auto mb-2" />
+                        <p className="text-xs font-medium">Учителя</p>
+                      </div>
+                      <div className="p-4 bg-blue-50 rounded-lg text-center">
+                        <Icon name="FileText" size={24} className="text-primary mx-auto mb-2" />
+                        <p className="text-xs font-medium">Документы</p>
+                      </div>
+                    </div>
+                    <div className="space-y-2 pt-2">
+                      <div className="h-3 bg-blue-100 rounded w-full"></div>
+                      <div className="h-3 bg-blue-100 rounded w-4/5"></div>
+                      <div className="h-3 bg-blue-100 rounded w-3/4"></div>
+                    </div>
+                  </div>
+                </div>
+                <div className="grid md:grid-cols-2 gap-4">
+                  {slide.content.features.map((feature, idx) => (
+                    <Card 
+                      key={idx} 
+                      className="p-4 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 animate-scale-in bg-gradient-to-br from-white to-blue-50/50"
+                      style={{ animationDelay: `${idx * 0.15}s` }}
+                    >
+                      <div className="flex items-start gap-3">
+                        <div className="p-2 rounded-lg bg-gradient-to-br from-primary to-secondary flex-shrink-0">
+                          <Icon name={feature.icon as any} size={20} className="text-white" />
+                        </div>
+                        <div>
+                          <h3 className="font-bold text-sm mb-1 text-foreground">{feature.title}</h3>
+                          <p className="text-xs text-muted-foreground">{feature.desc}</p>
+                        </div>
+                      </div>
+                    </Card>
+                  ))}
+                </div>
+              </div>
+            )}
+
             {slide.content.type === 'concept' && (
               <div className="grid md:grid-cols-2 gap-6">
                 {slide.content.features.map((feature, idx) => (
@@ -716,21 +827,33 @@ export default function Index() {
 
             {slide.content.type === 'survey' && (
               <div className="space-y-6">
-                <p className="text-lg font-semibold text-foreground mb-6">{slide.content.question}</p>
+                <Card className="p-4 bg-gradient-to-r from-blue-50 to-purple-50 border-l-4 border-primary">
+                  <div className="flex items-center gap-3">
+                    <Icon name="BarChart3" size={24} className="text-primary" />
+                    <p className="text-lg font-semibold text-foreground">{slide.content.question}</p>
+                  </div>
+                </Card>
                 {slide.content.results.map((result, idx) => (
                   <div key={idx} className="animate-fade-in" style={{ animationDelay: `${idx * 0.1}s` }}>
                     <div className="flex items-center justify-between mb-2">
-                      <span className="text-sm font-medium text-foreground">{result.label}</span>
+                      <div className="flex items-center gap-2">
+                        <Icon 
+                          name={result.color === 'bg-green-500' ? 'ThumbsUp' : result.color === 'bg-yellow-500' ? 'Minus' : 'ThumbsDown'} 
+                          size={18} 
+                          className={result.color === 'bg-green-500' ? 'text-green-500' : result.color === 'bg-yellow-500' ? 'text-yellow-500' : 'text-red-500'}
+                        />
+                        <span className="text-sm font-medium text-foreground">{result.label}</span>
+                      </div>
                       <span className="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
                         {result.value}%
                       </span>
                     </div>
-                    <div className="h-8 bg-muted rounded-full overflow-hidden relative">
+                    <div className="h-8 bg-muted rounded-full overflow-hidden relative shadow-inner">
                       <div 
-                        className={`h-full ${result.color} rounded-full transition-all duration-1000 ease-out flex items-center justify-end px-4`}
+                        className={`h-full ${result.color} rounded-full transition-all duration-1000 ease-out flex items-center justify-end px-4 shadow-lg`}
                         style={{ width: `${result.value}%` }}
                       >
-                        <span className="text-xs font-bold text-white">{result.value}%</span>
+                        <span className="text-xs font-bold text-white drop-shadow">{result.value}%</span>
                       </div>
                     </div>
                   </div>
