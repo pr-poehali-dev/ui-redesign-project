@@ -7,15 +7,206 @@ import { Progress } from '@/components/ui/progress';
 const slides = [
   {
     id: 1,
-    section: 'Дизайн',
-    title: 'Анализ старого сайта: Навигация',
+    section: 'Введение',
+    title: 'Актуальность, цель, задачи, гипотеза',
     content: {
-      type: 'analysis',
-      data: [
-        { criterion: 'Навигация', score: 3, issue: 'Перегруженное меню, неочевидная структура' }
+      type: 'intro',
+      items: [
+        { 
+          title: 'Актуальность', 
+          icon: 'TrendingUp',
+          text: 'Актуальность исследования обусловлена повсеместным использованием интернет-ресурсов как основного канала коммуникации образовательных учреждений. Неудобный, устаревший интерфейс приводит к негативному пользовательскому опыту, снижает доверие и затрудняет доступ к важным сведениям.'
+        },
+        { 
+          title: 'Цель', 
+          icon: 'Target',
+          text: 'Разработка редизайна главной страницы официального сайта школы, направленного на значительное повышение его удобства, эстетического восприятия и соответствия современным стандартам.'
+        }
+      ]
+    }
+  },
+  {
+    id: 2,
+    section: 'Введение',
+    title: 'Задачи и гипотеза',
+    content: {
+      type: 'tasks',
+      tasks: [
+        'Изучить теоретические и практические аспекты современного веб-дизайна',
+        'Провести комплексный анализ существующего сайта',
+        'Спроектировать новый пользовательский интерфейс (UI)',
+        'Разработать прототип обновлённой главной страницы',
+        'Оценить эффективность внедрённых изменений'
       ],
-      totalScore: '3/10',
-      details: 'Перегруженное меню содержит слишком много разделов. Пользователи теряются в структуре и не могут быстро найти нужную информацию.'
+      hypothesis: 'Системная модернизация веб-дизайна официального школьного сайта, основанная на принципах юзабилити, приведет к статистически значимому улучшению восприятия ресурса пользователями.'
+    }
+  },
+  {
+    id: 3,
+    section: 'Теория',
+    title: 'История веб-дизайна',
+    content: {
+      type: 'timeline',
+      events: [
+        { year: '1991', text: 'Первый в мире сайт (Тим Бернерс-Ли) — статичный, без интерактива' },
+        { year: '1993', text: 'Графический браузер Mosaic — начало использования цвета и изображений' },
+        { year: '2000-е', text: 'Появление привычной «сетки» сайта, закруглённых краёв, градиентов. Зарождение принципов современного дизайна' },
+        { year: 'Сейчас', text: 'Веб-дизайн — это сочетание эстетики, функциональности и технологии с фокусом на пользовательский опыт (UX/UI) и адаптивность' }
+      ],
+      technologies: 'Ключевые технологии: CSS (отделение оформления от содержания) и JavaScript (динамические элементы)'
+    }
+  },
+  {
+    id: 4,
+    section: 'Теория',
+    title: 'Цели и принципы веб-дизайна',
+    content: {
+      type: 'principles',
+      goals: [
+        { icon: 'Sparkles', text: 'Создание привлекательного визуального образа' },
+        { icon: 'Users', text: 'Улучшение пользовательского опыта (UX)' },
+        { icon: 'TrendingUp', text: 'Увеличение конверсии' },
+        { icon: 'Award', text: 'Укрепление бренда' }
+      ],
+      principles: [
+        { icon: 'Minimize', text: 'Простота — ключ к успешному веб-дизайну' },
+        { icon: 'Smartphone', text: 'Адаптивность — необходимость для разных устройств' },
+        { icon: 'Navigation', text: 'Навигация — основа хорошего дизайна' },
+        { icon: 'Palette', text: 'Цветовая палитра — играет важную роль в восприятии' },
+        { icon: 'Type', text: 'Типография — шрифты должны быть читабельными' }
+      ]
+    }
+  },
+  {
+    id: 5,
+    section: 'Теория',
+    title: 'Z-паттерн и Цветовой круг',
+    content: {
+      type: 'theory',
+      sections: [
+        {
+          title: 'Z-образный паттерн (Диаграмма Гутенберга)',
+          icon: 'Zap',
+          text: 'Задает маршрут, по которому человеческий глаз перемещается при просмотре страницы (слева направо, сверху вниз). Ключевые элементы нужно разместить на траектории сканирования.'
+        },
+        {
+          title: 'Цветовой круг Иттена',
+          icon: 'Palette',
+          text: 'Инструмент для выбора гармоничных цветовых палитр. Холодные цвета (синий, зеленый) вызывают чувство спокойствия и доверия — идеально для школы.'
+        }
+      ]
+    }
+  },
+  {
+    id: 6,
+    section: 'Теория',
+    title: 'Оформление школьного сайта и критерии оценки',
+    content: {
+      type: 'criteria',
+      role: 'Важный инструмент общения и отражение культуры учреждения',
+      requirements: [
+        'Простота',
+        'Сдержанная цветовая гамма (синие, белые тона)',
+        'Адаптивность (особенно для смартфонов)',
+        'Организация контента'
+      ],
+      criteria: [
+        { icon: 'Layout', text: 'Юзабилити (логичная структура, интуитивная навигация)' },
+        { icon: 'FileText', text: 'Контент (актуальность, соответствие интересам аудитории)' },
+        { icon: 'Palette', text: 'Дизайн и визуальное оформление (первое впечатление)' },
+        { icon: 'MessageCircle', text: 'Взаимодействие с пользователями (обратная связь)' },
+        { icon: 'Monitor', text: 'Адаптивность и совместимость (работа на любых устройствах)' }
+      ]
+    }
+  },
+  {
+    id: 7,
+    section: 'Практика',
+    title: 'Аудит старого сайта: Юзабилити',
+    content: {
+      type: 'audit',
+      criterion: 'Юзабилити (удобство использования)',
+      score: 4,
+      problems: [
+        'Сайт перегружен текстом в виде плотных абзацев без визуальной иерархии',
+        'Навигационное меню содержит слишком много пунктов без чёткой структуры',
+        'Визуальные ссылки расположены хаотично и разного размера',
+        'Отсутствует поисковая строка'
+      ]
+    }
+  },
+  {
+    id: 8,
+    section: 'Практика',
+    title: 'Аудит старого сайта: Контент',
+    content: {
+      type: 'audit',
+      criterion: 'Контент',
+      score: 6,
+      problems: [
+        'Много избыточного текста без акцентов и структурирования заголовками',
+        'Отсутствуют визуальные элементы (иконки, фото)',
+        'Нет новостной ленты, отчётов о мероприятиях'
+      ]
+    }
+  },
+  {
+    id: 9,
+    section: 'Практика',
+    title: 'Аудит старого сайта: Дизайн',
+    content: {
+      type: 'audit',
+      criterion: 'Дизайн и визуальное оформление',
+      score: 3,
+      problems: [
+        'Дизайн устарел, напоминает шаблоны начала 2000-х',
+        'Цветовая палитра (голубой фон, синий текст, серые блоки) выглядит тускло и неконтрастно',
+        'Мелкий шрифт снижает читаемость'
+      ]
+    }
+  },
+  {
+    id: 10,
+    section: 'Практика',
+    title: 'Аудит старого сайта: Адаптивность',
+    content: {
+      type: 'audit',
+      criterion: 'Адаптивность',
+      score: 2,
+      problems: [
+        'Сайт не адаптирован под мобильные устройства',
+        'При просмотре с телефона элементы не перестраиваются, текст выходит за рамки',
+        'Отсутствует мобильное меню'
+      ]
+    }
+  },
+  {
+    id: 11,
+    section: 'Практика',
+    title: 'Аудит старого сайта: Совместимость',
+    content: {
+      type: 'audit',
+      criterion: 'Совместимость',
+      score: 5,
+      problems: [
+        'Возможны проблемы с корректным отображением на современных устройствах с высоким разрешением'
+      ]
+    }
+  },
+  {
+    id: 12,
+    section: 'Практика',
+    title: 'Итоговая оценка старого сайта',
+    content: {
+      type: 'summary',
+      scores: [
+        { criterion: 'Юзабилити', score: 4 },
+        { criterion: 'Контент', score: 6 },
+        { criterion: 'Дизайн', score: 3 },
+        { criterion: 'Адаптивность', score: 2 },
+        { criterion: 'Совместимость', score: 5 }
+      ],
+      totalScore: '4/10'
     }
   },
   {
@@ -87,8 +278,8 @@ const slides = [
     }
   },
   {
-    id: 7,
-    section: 'Дизайн',
+    id: 13,
+    section: 'Практика',
     title: 'Разработка нового макета',
     content: {
       type: 'concept',
@@ -101,8 +292,8 @@ const slides = [
     }
   },
   {
-    id: 8,
-    section: 'Дизайн',
+    id: 14,
+    section: 'Практика',
     title: 'Типографика и композиция',
     content: {
       type: 'text',
@@ -110,8 +301,8 @@ const slides = [
     }
   },
   {
-    id: 9,
-    section: 'Содержание',
+    id: 15,
+    section: 'Результаты',
     title: 'Результаты опроса: Скорость поиска',
     content: {
       type: 'survey',
@@ -124,8 +315,8 @@ const slides = [
     }
   },
   {
-    id: 10,
-    section: 'Содержание',
+    id: 16,
+    section: 'Результаты',
     title: 'Результаты опроса: Быстрый доступ',
     content: {
       type: 'survey',
@@ -138,8 +329,8 @@ const slides = [
     }
   },
   {
-    id: 11,
-    section: 'Содержание',
+    id: 17,
+    section: 'Результаты',
     title: 'Результаты опроса: Впечатление от дизайна',
     content: {
       type: 'survey',
@@ -152,8 +343,8 @@ const slides = [
     }
   },
   {
-    id: 12,
-    section: 'Содержание',
+    id: 18,
+    section: 'Результаты',
     title: 'Результаты опроса: Обратная связь',
     content: {
       type: 'survey',
@@ -166,8 +357,8 @@ const slides = [
     }
   },
   {
-    id: 13,
-    section: 'Содержание',
+    id: 19,
+    section: 'Результаты',
     title: 'Результаты опроса: Читаемость',
     content: {
       type: 'survey',
@@ -180,7 +371,7 @@ const slides = [
     }
   },
   {
-    id: 14,
+    id: 20,
     section: 'Вывод',
     title: 'Заключение и практическая значимость',
     content: {
@@ -326,6 +517,178 @@ export default function Index() {
             {slide.content.type === 'text' && (
               <div className="animate-fade-in">
                 <p className="text-lg leading-relaxed text-foreground">{slide.content.text}</p>
+              </div>
+            )}
+
+            {slide.content.type === 'intro' && (
+              <div className="space-y-8">
+                {slide.content.items.map((item, idx) => (
+                  <Card key={idx} className="p-6 animate-scale-in bg-gradient-to-br from-white to-blue-50/30" style={{ animationDelay: `${idx * 0.2}s` }}>
+                    <div className="flex items-start gap-4">
+                      <div className="p-3 rounded-lg bg-gradient-to-br from-primary to-secondary flex-shrink-0">
+                        <Icon name={item.icon as any} size={24} className="text-white" />
+                      </div>
+                      <div>
+                        <h3 className="font-bold text-xl mb-3 text-foreground">{item.title}</h3>
+                        <p className="text-base leading-relaxed text-muted-foreground">{item.text}</p>
+                      </div>
+                    </div>
+                  </Card>
+                ))}
+              </div>
+            )}
+
+            {slide.content.type === 'tasks' && (
+              <div className="space-y-6">
+                <div>
+                  <h3 className="font-bold text-xl mb-4 text-foreground">Задачи:</h3>
+                  <div className="space-y-3">
+                    {slide.content.tasks.map((task, idx) => (
+                      <div key={idx} className="flex items-start gap-3 animate-fade-in" style={{ animationDelay: `${idx * 0.1}s` }}>
+                        <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white font-bold text-sm">
+                          {idx + 1}
+                        </div>
+                        <p className="text-base text-foreground pt-1">{task}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <Card className="p-6 bg-gradient-to-br from-purple-50 to-blue-50 border-l-4 border-accent">
+                  <h3 className="font-bold text-xl mb-3 text-foreground flex items-center gap-2">
+                    <Icon name="Lightbulb" size={24} className="text-accent" />
+                    Гипотеза
+                  </h3>
+                  <p className="text-base leading-relaxed text-foreground">{slide.content.hypothesis}</p>
+                </Card>
+              </div>
+            )}
+
+            {slide.content.type === 'timeline' && (
+              <div className="space-y-6">
+                {slide.content.events.map((event, idx) => (
+                  <div key={idx} className="flex gap-4 animate-fade-in" style={{ animationDelay: `${idx * 0.15}s` }}>
+                    <div className="flex-shrink-0 w-20 font-bold text-primary text-lg">{event.year}</div>
+                    <div className="flex-1">
+                      <p className="text-base text-foreground">{event.text}</p>
+                    </div>
+                  </div>
+                ))}
+                <Card className="mt-6 p-4 bg-blue-50 border-l-4 border-primary">
+                  <p className="text-base font-semibold text-foreground">{slide.content.technologies}</p>
+                </Card>
+              </div>
+            )}
+
+            {slide.content.type === 'principles' && (
+              <div className="space-y-8">
+                <div>
+                  <h3 className="font-bold text-xl mb-4 text-foreground">Цели:</h3>
+                  <div className="grid md:grid-cols-2 gap-4">
+                    {slide.content.goals.map((goal, idx) => (
+                      <Card key={idx} className="p-4 animate-scale-in" style={{ animationDelay: `${idx * 0.1}s` }}>
+                        <div className="flex items-center gap-3">
+                          <Icon name={goal.icon as any} size={20} className="text-primary" />
+                          <p className="text-sm font-medium text-foreground">{goal.text}</p>
+                        </div>
+                      </Card>
+                    ))}
+                  </div>
+                </div>
+                <div>
+                  <h3 className="font-bold text-xl mb-4 text-foreground">Основные принципы:</h3>
+                  <div className="space-y-3">
+                    {slide.content.principles.map((principle, idx) => (
+                      <Card key={idx} className="p-4 animate-fade-in bg-gradient-to-r from-white to-purple-50/30" style={{ animationDelay: `${idx * 0.1}s` }}>
+                        <div className="flex items-center gap-3">
+                          <Icon name={principle.icon as any} size={20} className="text-secondary" />
+                          <p className="text-base text-foreground">{principle.text}</p>
+                        </div>
+                      </Card>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {slide.content.type === 'theory' && (
+              <div className="space-y-6">
+                {slide.content.sections.map((section, idx) => (
+                  <Card key={idx} className="p-6 animate-scale-in bg-gradient-to-br from-white to-blue-50/40" style={{ animationDelay: `${idx * 0.2}s` }}>
+                    <div className="flex items-start gap-4">
+                      <div className="p-3 rounded-lg bg-gradient-to-br from-primary to-accent flex-shrink-0">
+                        <Icon name={section.icon as any} size={24} className="text-white" />
+                      </div>
+                      <div>
+                        <h3 className="font-bold text-lg mb-3 text-foreground">{section.title}</h3>
+                        <p className="text-base leading-relaxed text-muted-foreground">{section.text}</p>
+                      </div>
+                    </div>
+                  </Card>
+                ))}
+              </div>
+            )}
+
+            {slide.content.type === 'criteria' && (
+              <div className="space-y-6">
+                <Card className="p-4 bg-gradient-to-r from-blue-50 to-purple-50">
+                  <p className="text-base font-semibold text-foreground">
+                    <Icon name="School" size={20} className="inline mr-2 text-primary" />
+                    {slide.content.role}
+                  </p>
+                </Card>
+                <div>
+                  <h3 className="font-bold text-lg mb-3 text-foreground">Требования:</h3>
+                  <div className="flex flex-wrap gap-2">
+                    {slide.content.requirements.map((req, idx) => (
+                      <span key={idx} className="px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium">
+                        {req}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                <div>
+                  <h3 className="font-bold text-lg mb-4 text-foreground">Критерии оценки:</h3>
+                  <div className="space-y-3">
+                    {slide.content.criteria.map((criterion, idx) => (
+                      <Card key={idx} className="p-4 animate-fade-in" style={{ animationDelay: `${idx * 0.1}s` }}>
+                        <div className="flex items-start gap-3">
+                          <Icon name={criterion.icon as any} size={20} className="text-secondary flex-shrink-0 mt-0.5" />
+                          <p className="text-base text-foreground">{criterion.text}</p>
+                        </div>
+                      </Card>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {slide.content.type === 'audit' && (
+              <div className="space-y-6">
+                <Card className="p-6 bg-gradient-to-r from-orange-50 to-red-50 border-l-4 border-orange-500">
+                  <div className="flex items-center justify-between mb-4">
+                    <h3 className="font-bold text-xl text-foreground">{slide.content.criterion}</h3>
+                    <div className="flex items-center gap-3">
+                      <span className="text-3xl font-bold bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent">
+                        {slide.content.score}/10
+                      </span>
+                      <div className="w-32 h-4 bg-white rounded-full overflow-hidden">
+                        <div 
+                          className={`h-full ${slide.content.score <= 3 ? 'bg-red-500' : slide.content.score <= 6 ? 'bg-yellow-500' : 'bg-green-500'}`}
+                          style={{ width: `${slide.content.score * 10}%` }}
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="space-y-2">
+                    <h4 className="font-semibold text-base text-foreground mb-2">Проблемы:</h4>
+                    {slide.content.problems.map((problem, idx) => (
+                      <div key={idx} className="flex items-start gap-2">
+                        <Icon name="AlertCircle" size={16} className="text-red-500 flex-shrink-0 mt-1" />
+                        <p className="text-sm text-muted-foreground">{problem}</p>
+                      </div>
+                    ))}
+                  </div>
+                </Card>
               </div>
             )}
 
