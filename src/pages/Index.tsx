@@ -8,35 +8,109 @@ const slides = [
   {
     id: 1,
     section: 'Дизайн',
-    title: 'Анализ старого сайта',
+    title: 'Анализ старого сайта: Навигация',
     content: {
       type: 'analysis',
       data: [
-        { criterion: 'Навигация', score: 3, issue: 'Перегруженное меню, неочевидная структура' },
-        { criterion: 'Визуальная иерархия', score: 2, issue: 'Отсутствует чёткая структура, всё одинаково важно' },
-        { criterion: 'Цветовая схема', score: 4, issue: 'Устаревшая палитра, низкий контраст' },
-        { criterion: 'Адаптивность', score: 2, issue: 'Отсутствует мобильное меню' },
-        { criterion: 'Совместимость', score: 5, issue: 'Проблемы на современных устройствах' }
+        { criterion: 'Навигация', score: 3, issue: 'Перегруженное меню, неочевидная структура' }
       ],
-      totalScore: '4/10'
+      totalScore: '3/10',
+      details: 'Перегруженное меню содержит слишком много разделов. Пользователи теряются в структуре и не могут быстро найти нужную информацию.'
     }
   },
   {
     id: 2,
     section: 'Дизайн',
-    title: 'Новый макет: Концепция',
+    title: 'Анализ старого сайта: Визуальная иерархия',
     content: {
-      type: 'concept',
-      features: [
-        { icon: 'Palette', title: 'Цветовая схема', desc: 'Белый фон + насыщенный синий для надёжности и стабильности' },
-        { icon: 'Layout', title: 'Блок "Быстрый доступ"', desc: 'Сетка карточек с иконками для главного: расписание, дневник, учителя' },
-        { icon: 'Newspaper', title: 'Динамическая лента', desc: 'События, достижения, объявления в удобном формате' },
-        { icon: 'MessageSquare', title: 'Контакты и форма', desc: 'Простая обратная связь и контактная информация' }
-      ]
+      type: 'analysis',
+      data: [
+        { criterion: 'Визуальная иерархия', score: 2, issue: 'Отсутствует чёткая структура, всё одинаково важно' }
+      ],
+      totalScore: '2/10',
+      details: 'Все элементы на странице выглядят одинаково важными. Нет акцентов, нет понятной последовательности восприятия информации.'
     }
   },
   {
     id: 3,
+    section: 'Дизайн',
+    title: 'Анализ старого сайта: Цветовая схема',
+    content: {
+      type: 'analysis',
+      data: [
+        { criterion: 'Цветовая схема', score: 4, issue: 'Устаревшая палитра, низкий контраст' }
+      ],
+      totalScore: '4/10',
+      details: 'Используются устаревшие цвета, которые не соответствуют современным трендам. Низкий контраст затрудняет чтение текста.'
+    }
+  },
+  {
+    id: 4,
+    section: 'Дизайн',
+    title: 'Анализ старого сайта: Адаптивность',
+    content: {
+      type: 'analysis',
+      data: [
+        { criterion: 'Адаптивность', score: 2, issue: 'Отсутствует мобильное меню' }
+      ],
+      totalScore: '2/10',
+      details: 'Сайт плохо адаптирован под мобильные устройства. Отсутствует мобильное меню, элементы накладываются друг на друга.'
+    }
+  },
+  {
+    id: 5,
+    section: 'Дизайн',
+    title: 'Анализ старого сайта: Совместимость',
+    content: {
+      type: 'analysis',
+      data: [
+        { criterion: 'Совместимость', score: 5, issue: 'Проблемы с корректным отображением на современных устройствах с высоким разрешением' }
+      ],
+      totalScore: '5/10',
+      details: 'Возможны проблемы с отображением на устройствах с Retina и высоким DPI. Изображения размываются, шрифты выглядят нечётко.'
+    }
+  },
+  {
+    id: 6,
+    section: 'Дизайн',
+    title: 'Итоговая оценка старого сайта',
+    content: {
+      type: 'summary',
+      scores: [
+        { criterion: 'Навигация', score: 3 },
+        { criterion: 'Визуальная иерархия', score: 2 },
+        { criterion: 'Цветовая схема', score: 4 },
+        { criterion: 'Адаптивность', score: 2 },
+        { criterion: 'Совместимость', score: 5 }
+      ],
+      totalScore: '4/10'
+    }
+  },
+  {
+    id: 7,
+    section: 'Дизайн',
+    title: 'Разработка нового макета',
+    content: {
+      type: 'concept',
+      features: [
+        { icon: 'Palette', title: 'Цветовая схема', desc: 'Чистый белый фон (читаемость, порядок) + насыщенный синий (надёжность, стабильность, интеллект)' },
+        { icon: 'Layout', title: 'Блок "Быстрый доступ"', desc: 'Сетка карточек с иконками для главного: расписание, электронный дневник, учителя, документы' },
+        { icon: 'Newspaper', title: 'Динамическая лента новостей', desc: 'События, достижения, объявления в удобном формате' },
+        { icon: 'MessageSquare', title: 'Блок контактов', desc: 'Простая форма обратной связи и контактная информация' }
+      ]
+    }
+  },
+  {
+    id: 8,
+    section: 'Дизайн',
+    title: 'Типографика и композиция',
+    content: {
+      type: 'text',
+      text: 'Чёткая визуальная иерархия и достаточно "воздуха" для лёгкости восприятия. Используются современные шрифты с хорошей читаемостью. Все элементы структурированы логически.'
+    }
+  },
+  {
+    id: 9,
     section: 'Содержание',
     title: 'Результаты опроса: Скорость поиска',
     content: {
@@ -50,7 +124,7 @@ const slides = [
     }
   },
   {
-    id: 4,
+    id: 10,
     section: 'Содержание',
     title: 'Результаты опроса: Быстрый доступ',
     content: {
@@ -64,9 +138,9 @@ const slides = [
     }
   },
   {
-    id: 5,
+    id: 11,
     section: 'Содержание',
-    title: 'Результаты опроса: Впечатление',
+    title: 'Результаты опроса: Впечатление от дизайна',
     content: {
       type: 'survey',
       question: 'Впечатление от нового дизайна?',
@@ -78,7 +152,21 @@ const slides = [
     }
   },
   {
-    id: 6,
+    id: 12,
+    section: 'Содержание',
+    title: 'Результаты опроса: Обратная связь',
+    content: {
+      type: 'survey',
+      question: 'Организация обратной связи?',
+      results: [
+        { label: 'Теперь всё очень просто', value: 82, color: 'bg-green-500' },
+        { label: 'Не пользовался(ась) функцией', value: 17, color: 'bg-yellow-500' },
+        { label: 'Стало сложнее', value: 1, color: 'bg-red-500' }
+      ]
+    }
+  },
+  {
+    id: 13,
     section: 'Содержание',
     title: 'Результаты опроса: Читаемость',
     content: {
@@ -92,16 +180,16 @@ const slides = [
     }
   },
   {
-    id: 7,
+    id: 14,
     section: 'Вывод',
     title: 'Заключение и практическая значимость',
     content: {
       type: 'conclusion',
       points: [
-        { icon: 'CheckCircle', text: 'Цель проекта достигнута — редизайн значительно улучшил юзабилити' },
-        { icon: 'TrendingUp', text: '85-94% положительных оценок по всем критериям' },
-        { icon: 'Users', text: 'Соответствие современным стандартам и потребностям пользователей' },
-        { icon: 'Award', text: 'Гипотеза подтверждена — новый дизайн повышает эффективность' }
+        { icon: 'Target', text: 'Цель достигнута. Разработанный редизайн значительно улучшает юзабилити и восприятие сайта' },
+        { icon: 'CheckCircle', text: 'Гипотеза подтверждена — новый дизайн повышает удобство использования' },
+        { icon: 'TrendingUp', text: '85-94% положительных оценок по всем критериям опроса' },
+        { icon: 'Users', text: 'Соответствие современным стандартам и потребностям пользователей' }
       ]
     }
   }
@@ -180,14 +268,14 @@ export default function Index() {
             </div>
 
             {slide.content.type === 'analysis' && (
-              <div className="space-y-4">
+              <div className="space-y-6">
                 {slide.content.data.map((item, idx) => (
                   <div key={idx} className="animate-fade-in" style={{ animationDelay: `${idx * 0.1}s` }}>
                     <div className="flex items-center justify-between mb-2">
-                      <span className="font-semibold text-foreground">{item.criterion}</span>
+                      <span className="font-semibold text-foreground text-lg">{item.criterion}</span>
                       <div className="flex items-center gap-2">
-                        <span className="text-sm font-medium text-muted-foreground">{item.score}/10</span>
-                        <div className="w-24 h-2 bg-muted rounded-full overflow-hidden">
+                        <span className="text-lg font-bold text-muted-foreground">{item.score}/10</span>
+                        <div className="w-32 h-3 bg-muted rounded-full overflow-hidden">
                           <div 
                             className={`h-full ${item.score <= 3 ? 'bg-red-500' : item.score <= 6 ? 'bg-yellow-500' : 'bg-green-500'}`}
                             style={{ width: `${item.score * 10}%` }}
@@ -195,12 +283,49 @@ export default function Index() {
                         </div>
                       </div>
                     </div>
-                    <p className="text-sm text-muted-foreground pl-4 border-l-2 border-muted">{item.issue}</p>
+                    <p className="text-base text-muted-foreground pl-4 border-l-2 border-muted">{item.issue}</p>
                   </div>
                 ))}
+                {slide.content.details && (
+                  <div className="mt-6 p-4 bg-blue-50 rounded-lg">
+                    <p className="text-base text-foreground">{slide.content.details}</p>
+                  </div>
+                )}
                 <div className="mt-8 p-6 bg-gradient-to-r from-red-50 to-orange-50 rounded-lg border-l-4 border-red-500">
-                  <p className="text-lg font-bold text-foreground">Итоговая оценка: {slide.content.totalScore}</p>
+                  <p className="text-xl font-bold text-foreground">Итоговая оценка: {slide.content.totalScore}</p>
                 </div>
+              </div>
+            )}
+
+            {slide.content.type === 'summary' && (
+              <div className="space-y-6">
+                {slide.content.scores.map((item, idx) => (
+                  <div key={idx} className="animate-fade-in" style={{ animationDelay: `${idx * 0.1}s` }}>
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="font-semibold text-foreground text-lg">{item.criterion}</span>
+                      <div className="flex items-center gap-3">
+                        <span className="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                          {item.score}/10
+                        </span>
+                        <div className="w-32 h-4 bg-muted rounded-full overflow-hidden">
+                          <div 
+                            className={`h-full ${item.score <= 3 ? 'bg-red-500' : item.score <= 6 ? 'bg-yellow-500' : 'bg-green-500'}`}
+                            style={{ width: `${item.score * 10}%` }}
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+                <div className="mt-8 p-8 bg-gradient-to-r from-red-50 to-orange-50 rounded-lg border-l-4 border-red-500">
+                  <p className="text-2xl font-bold text-foreground">Итоговая оценка: {slide.content.totalScore}</p>
+                </div>
+              </div>
+            )}
+
+            {slide.content.type === 'text' && (
+              <div className="animate-fade-in">
+                <p className="text-lg leading-relaxed text-foreground">{slide.content.text}</p>
               </div>
             )}
 
